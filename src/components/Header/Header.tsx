@@ -3,6 +3,20 @@ import { Link } from "react-router-dom"
 
 
 const Header = () => {
+
+    const onButtonClick = () => {
+        const pdfUrl = "/Daniel_Mihai_Romania.pdf"; // Updated path
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "Daniel_Mihai_Romania.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        link.removeAttribute('download');
+    };
+
+
+
     return (
         <header>
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -16,7 +30,7 @@ const Header = () => {
                     <Link to={'/'} className="mr-5 hover:text-gray-900">Home</Link>
                     <Link to={'/about'} className="mr-5 hover:text-gray-900">About</Link>
                     <Link to={'/contact'} className="mr-5 hover:text-gray-900">Contact me</Link>
-                    <button className="mr-5 hover:text-gray-900 font-semibold text-indigo-500 underline">Download Resume</button>
+                    <button onClick={onButtonClick} className="mr-5 hover:text-gray-900 font-semibold text-indigo-500 underline">Download Resume</button>
                 </nav>
             </div>
         </header>

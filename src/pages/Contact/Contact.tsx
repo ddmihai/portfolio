@@ -4,6 +4,8 @@ import ContactForm from "./components/ContactForm"
 
 
 const Contact = () => {
+
+
     return (
         <section>
             <Banner />
